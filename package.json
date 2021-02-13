@@ -15,6 +15,9 @@
   "bugs": {
     "url": "https://github.com/moro-patana/mahanoro-station/issues"
   },
+  "browserslist": [
+    "last 1 chrome version"
+  ],
   "homepage": "https://github.com/moro-patana/mahanoro-station#readme",
   "dependencies": {
     "react": "^17.0.1",
