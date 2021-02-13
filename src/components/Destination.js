@@ -15,6 +15,7 @@ export default function Destination({trips, getTripsList}) {
                     {trip.seats.map(seat => (
                         <p>{seat.isAvailable}</p>
                     ))}
+                    <button>Book a seat</button>
 				</div>
 			</Link>
 		);
