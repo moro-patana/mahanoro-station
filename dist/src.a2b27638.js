@@ -36345,9 +36345,7 @@ var _reactRouterDom = require("react-router-dom");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function DestinationsList({
-  trips
-}) {
+function DestinationsList() {
   const destinations = (0, _reactRedux.useSelector)(state => state.destinations);
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "\uD83D\uDE8DWhere are you going?"), destinations.map(destination => /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: `/destination/${destination}`
@@ -36385,7 +36383,7 @@ function Destination({
     return /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
       to: `/destination/${trip.id}`,
       key: trip.id
-    }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h4", null, new Date(trip.departureTime).toString()), trip.seats.map(seat => /*#__PURE__*/_react.default.createElement("p", null, seat.isAvailable)), /*#__PURE__*/_react.default.createElement("button", null, "Book a seat")));
+    }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h4", null, new Date(trip.departureTime).toString()), /*#__PURE__*/_react.default.createElement("button", null, "Book a seat")));
   }
 
   function showTripsFilteredByDestination() {
@@ -36491,37 +36489,49 @@ function MyAccount() {
   }))))));
 }
 },{"react":"node_modules/react/index.js"}],"src/components/Seat.js":[function(require,module,exports) {
-
-},{}],"src/containers/Seat.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports.default = Seat;
 
-var _reactRedux = require("react-redux");
+var _react = _interopRequireDefault(require("react"));
 
-var _Seat = _interopRequireDefault(require("../components/Seat"));
-
-var _index = require("../actions/index");
+var _reactRouterDom = require("react-router-dom");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function mapStateToProps(state) {
-  return {
-    trips: state.trips
-  };
+function Seat({
+  trips
+}) {
+  console.log(trips);
+  const {
+    seatId
+  } = (0, _reactRouterDom.useParams)();
+  const trip = trips.find(trip => trip.id == seatId);
+  console.log(trip);
+
+  function selectSeat(trip) {
+    /*#__PURE__*/
+    _react.default.createElement(_reactRouterDom.Link, {
+      to: `/seat/${trip.id}`
+    }, /*#__PURE__*/_react.default.createElement("di", null, /*#__PURE__*/_react.default.createElement("span", null, trip.driverName)));
+  }
+
+  function showTripsInfo() {
+    const filteredTrips = trips.filter(trip => trip.id == seatId).map(selectSeat);
+
+    if (filteredTrips.length === 0) {
+      return /*#__PURE__*/_react.default.createElement("p", null, "No results.");
+    }
+
+    return filteredTrips;
+  }
+
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "hey"), /*#__PURE__*/_react.default.createElement("div", null, showTripsInfo()));
 }
-
-const mapDispatchToProps = {
-  getTripsList: _index.getTripsList
-};
-
-var _default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Seat.default);
-
-exports.default = _default;
-},{"react-redux":"node_modules/react-redux/es/index.js","../components/Seat":"src/components/Seat.js","../actions/index":"src/actions/index.js"}],"src/App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"src/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36541,23 +36551,21 @@ var _HeaderMenu = _interopRequireDefault(require("./components/HeaderMenu"));
 
 var _MyAccount = _interopRequireDefault(require("./components/MyAccount"));
 
-var _Seat = _interopRequireDefault(require("./containers/Seat"));
+var _Seat = _interopRequireDefault(require("./components/Seat"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function App() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Hello"), /*#__PURE__*/_react.default.createElement(_HeaderMenu.default, null), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Hello"), /*#__PURE__*/_react.default.createElement(_HeaderMenu.default, null), /*#__PURE__*/_react.default.createElement(_Seat.default, null), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     exact: true,
     path: "/destination"
   }, /*#__PURE__*/_react.default.createElement(_DestinationsList.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: "/destination/:destinationName"
   }, /*#__PURE__*/_react.default.createElement(_Destination.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
-    path: "/seat/:seatId"
-  }, /*#__PURE__*/_react.default.createElement(_Seat.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: "/account"
   }, /*#__PURE__*/_react.default.createElement(_MyAccount.default, null))));
 }
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./components/DestinationsList":"src/components/DestinationsList.js","./containers/Destination":"src/containers/Destination.js","./components/HeaderMenu":"src/components/HeaderMenu.js","./components/MyAccount":"src/components/MyAccount.js","./containers/Seat":"src/containers/Seat.js"}],"src/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./components/DestinationsList":"src/components/DestinationsList.js","./containers/Destination":"src/containers/Destination.js","./components/HeaderMenu":"src/components/HeaderMenu.js","./components/MyAccount":"src/components/MyAccount.js","./components/Seat":"src/components/Seat.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
