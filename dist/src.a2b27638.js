@@ -36488,50 +36488,7 @@ function MyAccount() {
     type: "number"
   }))))));
 }
-},{"react":"node_modules/react/index.js"}],"src/components/Seat.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = Seat;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _reactRouterDom = require("react-router-dom");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function Seat({
-  trips
-}) {
-  console.log(trips);
-  const {
-    seatId
-  } = (0, _reactRouterDom.useParams)();
-  const trip = trips.find(trip => trip.id == seatId);
-  console.log(trip);
-
-  function selectSeat(trip) {
-    /*#__PURE__*/
-    _react.default.createElement(_reactRouterDom.Link, {
-      to: `/seat/${trip.id}`
-    }, /*#__PURE__*/_react.default.createElement("di", null, /*#__PURE__*/_react.default.createElement("span", null, trip.driverName)));
-  }
-
-  function showTripsInfo() {
-    const filteredTrips = trips.filter(trip => trip.id == seatId).map(selectSeat);
-
-    if (filteredTrips.length === 0) {
-      return /*#__PURE__*/_react.default.createElement("p", null, "No results.");
-    }
-
-    return filteredTrips;
-  }
-
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, "hey"), /*#__PURE__*/_react.default.createElement("div", null, showTripsInfo()));
-}
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"src/App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"src/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36551,12 +36508,10 @@ var _HeaderMenu = _interopRequireDefault(require("./components/HeaderMenu"));
 
 var _MyAccount = _interopRequireDefault(require("./components/MyAccount"));
 
-var _Seat = _interopRequireDefault(require("./components/Seat"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function App() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Hello"), /*#__PURE__*/_react.default.createElement(_HeaderMenu.default, null), /*#__PURE__*/_react.default.createElement(_Seat.default, null), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Hello"), /*#__PURE__*/_react.default.createElement(_HeaderMenu.default, null), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     exact: true,
     path: "/destination"
   }, /*#__PURE__*/_react.default.createElement(_DestinationsList.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
@@ -36565,7 +36520,7 @@ function App() {
     path: "/account"
   }, /*#__PURE__*/_react.default.createElement(_MyAccount.default, null))));
 }
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./components/DestinationsList":"src/components/DestinationsList.js","./containers/Destination":"src/containers/Destination.js","./components/HeaderMenu":"src/components/HeaderMenu.js","./components/MyAccount":"src/components/MyAccount.js","./components/Seat":"src/components/Seat.js"}],"src/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./components/DestinationsList":"src/components/DestinationsList.js","./containers/Destination":"src/containers/Destination.js","./components/HeaderMenu":"src/components/HeaderMenu.js","./components/MyAccount":"src/components/MyAccount.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -36613,7 +36568,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59861" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57328" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
