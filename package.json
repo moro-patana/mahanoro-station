@@ -1,0 +1,19 @@
+{
+  "name": "mahanoro-station",
+  "version": "1.0.0",
+  "description": "![Design preview for the Mahanoro station coding challenge](./design/1.png)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moro-patana/mahanoro-station.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moro-patana/mahanoro-station/issues"
+  },
+  "homepage": "https://github.com/moro-patana/mahanoro-station#readme"
+}
