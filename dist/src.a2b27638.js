@@ -36492,7 +36492,36 @@ function MyAccount() {
 }
 },{"react":"node_modules/react/index.js"}],"src/components/Seat.js":[function(require,module,exports) {
 
-},{}],"src/App.js":[function(require,module,exports) {
+},{}],"src/containers/Seat.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _reactRedux = require("react-redux");
+
+var _Seat = _interopRequireDefault(require("../components/Seat"));
+
+var _index = require("../actions/index");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function mapStateToProps(state) {
+  return {
+    trips: state.trips
+  };
+}
+
+const mapDispatchToProps = {
+  getTripsList: _index.getTripsList
+};
+
+var _default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Seat.default);
+
+exports.default = _default;
+},{"react-redux":"node_modules/react-redux/es/index.js","../components/Seat":"src/components/Seat.js","../actions/index":"src/actions/index.js"}],"src/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36512,7 +36541,7 @@ var _HeaderMenu = _interopRequireDefault(require("./components/HeaderMenu"));
 
 var _MyAccount = _interopRequireDefault(require("./components/MyAccount"));
 
-var _Seat = _interopRequireDefault(require("./components/Seat"));
+var _Seat = _interopRequireDefault(require("./containers/Seat"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -36528,7 +36557,7 @@ function App() {
     path: "/account"
   }, /*#__PURE__*/_react.default.createElement(_MyAccount.default, null))));
 }
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./components/DestinationsList":"src/components/DestinationsList.js","./containers/Destination":"src/containers/Destination.js","./components/HeaderMenu":"src/components/HeaderMenu.js","./components/MyAccount":"src/components/MyAccount.js","./components/Seat":"src/components/Seat.js"}],"src/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./components/DestinationsList":"src/components/DestinationsList.js","./containers/Destination":"src/containers/Destination.js","./components/HeaderMenu":"src/components/HeaderMenu.js","./components/MyAccount":"src/components/MyAccount.js","./containers/Seat":"src/containers/Seat.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
