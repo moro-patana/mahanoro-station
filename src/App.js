@@ -11,7 +11,8 @@ export default function App() {
             <h1>Hello</h1>
             <HeaderMenu/>
             <Switch>
-                <Route exact path="/"><DestinationsList/></Route>
+                <Route exact path="/destination"><DestinationsList/></Route>
+                <Route path="/destination/:destinationName"><Destination/></Route>
                 <Route path="/account"><MyAccount/></Route>
             </Switch>
             {/* <Destination/> */}

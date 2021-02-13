@@ -36488,8 +36488,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function App() {
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Hello"), /*#__PURE__*/_react.default.createElement(_HeaderMenu.default, null), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     exact: true,
-    path: "/"
+    path: "/destination"
   }, /*#__PURE__*/_react.default.createElement(_DestinationsList.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+    path: "/destination/:destinationName"
+  }, /*#__PURE__*/_react.default.createElement(_Destination.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: "/account"
   }, /*#__PURE__*/_react.default.createElement(_MyAccount.default, null))));
 }
