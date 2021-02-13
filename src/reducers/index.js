@@ -7,6 +7,10 @@ function trips(trips=[], action) {
             return trips;
     }
 }
+function destinations(state=[], action) {
+    return state;
+}
 export default combineReducers({
-    trips
+    trips,
+    destinations
 })
