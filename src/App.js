@@ -4,7 +4,7 @@ import DestinationsList from "./components/DestinationsList"
 import Destination from "./containers/Destination"
 import HeaderMenu from "./components/HeaderMenu"
 import MyAccount from './components/MyAccount';
-import Seat from './components/Seat';
+import Seat from './containers/Seat';
 
 export default function App() {
     return (
