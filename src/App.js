@@ -4,6 +4,7 @@ import DestinationsList from "./components/DestinationsList"
 import Destination from "./containers/Destination"
 import HeaderMenu from "./components/HeaderMenu"
 import MyAccount from './components/MyAccount';
+import Seat from './components/Seat';
 
 export default function App() {
     return (
@@ -13,6 +14,7 @@ export default function App() {
             <Switch>
                 <Route exact path="/destination"><DestinationsList/></Route>
                 <Route path="/destination/:destinationName"><Destination/></Route>
+                <Route path="/seat/:seatId"><Seat/></Route>
                 <Route path="/account"><MyAccount/></Route>
             </Switch>
             {/* <Destination/> */}

@@ -36490,7 +36490,9 @@ function MyAccount() {
     type: "number"
   }))))));
 }
-},{"react":"node_modules/react/index.js"}],"src/App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"src/components/Seat.js":[function(require,module,exports) {
+
+},{}],"src/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36510,6 +36512,8 @@ var _HeaderMenu = _interopRequireDefault(require("./components/HeaderMenu"));
 
 var _MyAccount = _interopRequireDefault(require("./components/MyAccount"));
 
+var _Seat = _interopRequireDefault(require("./components/Seat"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function App() {
@@ -36519,10 +36523,12 @@ function App() {
   }, /*#__PURE__*/_react.default.createElement(_DestinationsList.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: "/destination/:destinationName"
   }, /*#__PURE__*/_react.default.createElement(_Destination.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+    path: "/seat/:seatId"
+  }, /*#__PURE__*/_react.default.createElement(_Seat.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: "/account"
   }, /*#__PURE__*/_react.default.createElement(_MyAccount.default, null))));
 }
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./components/DestinationsList":"src/components/DestinationsList.js","./containers/Destination":"src/containers/Destination.js","./components/HeaderMenu":"src/components/HeaderMenu.js","./components/MyAccount":"src/components/MyAccount.js"}],"src/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./components/DestinationsList":"src/components/DestinationsList.js","./containers/Destination":"src/containers/Destination.js","./components/HeaderMenu":"src/components/HeaderMenu.js","./components/MyAccount":"src/components/MyAccount.js","./components/Seat":"src/components/Seat.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
