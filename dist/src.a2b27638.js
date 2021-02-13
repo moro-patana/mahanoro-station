@@ -36466,7 +36466,7 @@ function App() {
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Hello"), /*#__PURE__*/_react.default.createElement(_HeaderMenu.default, null), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     exact: true,
     path: "/"
-  }, /*#__PURE__*/_react.default.createElement(_DestinationsList.default, null))), /*#__PURE__*/_react.default.createElement(_Destination.default, null));
+  }, /*#__PURE__*/_react.default.createElement(_DestinationsList.default, null))));
 }
 },{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./components/DestinationsList":"src/components/DestinationsList.js","./containers/Destination":"src/containers/Destination.js","./components/HeaderMenu":"src/components/HeaderMenu.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
