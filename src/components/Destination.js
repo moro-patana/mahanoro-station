@@ -4,6 +4,7 @@ export default function Destination({trips, getTripsList}) {
     useEffect(() => {
         getTripsList()
       }, [])
+      
     return (
         <>
         <h2>Next Trip to:</h2>
