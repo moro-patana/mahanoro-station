@@ -36437,7 +36437,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function HeaderMenu() {
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-    to: "/"
+    to: "/destination"
   }, "\uD83D\uDE8D Mahanoro Satation"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/account"
   }, "My Account"));
