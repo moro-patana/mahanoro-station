@@ -33347,6 +33347,7 @@ var _index = _interopRequireDefault(require("./reducers/index"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+console.log(_state.default);
 let store = (0, _redux.createStore)(_index.default, _state.default, (0, _redux.applyMiddleware)(_reduxThunk.default));
 var _default = store;
 exports.default = _default;
@@ -33370,26 +33371,7 @@ function DestinationsList({
   const destinations = (0, _reactRedux.useSelector)(state => state.destinations);
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "\uD83D\uDE8DWhere are you going?"), destinations.map(destination => /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("span", null, "\uD83C\uDFD9", destination))));
 }
-},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js"}],"src/actions/index.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.getTripsList = getTripsList;
-
-function getTripsList() {
-  return async dispatch => {
-    const res = await fetch(`https://gist.githubusercontent.com/Pinois/36bb5fbf9b6a686f0baf4006dd137bca/raw/a40d8b3f696a75f388db286d57bdd05a925fa0e7/trips.json`);
-    const trips = await res.json();
-    console.log(trips);
-    dispatch({
-      type: "GET_TRIPS",
-      value: trips
-    });
-  };
-}
-},{}],"src/components/Destination.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js"}],"src/components/Destination.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -33399,23 +33381,69 @@ exports.default = Destination;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _reactRedux = require("react-redux");
-
-var _index = require("../actions/index");
-
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function Destination() {
-  const trips = (0, _reactRedux.useSelector)(state => state.trips);
+function Destination({
+  trips,
+  getTripsList
+}) {
   console.log(trips);
   (0, _react.useEffect)(() => {
-    (0, _index.getTripsList)();
+    getTripsList();
   }, []);
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, trips.map(trip => /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Next Trip to:"), /*#__PURE__*/_react.default.createElement("p", null, trip.Destination))));
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h2", null, "Next Trip to:"), trips.map(trip => /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, trip.destination))));
 }
-},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","../actions/index":"src/actions/index.js"}],"src/App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js"}],"src/actions/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getTripsList = getTripsList;
+
+function getTripsList() {
+  return async dispatch => {
+    const res = await fetch("https://gist.githubusercontent.com/Pinois/36bb5fbf9b6a686f0baf4006dd137bca/raw/a40d8b3f696a75f388db286d57bdd05a925fa0e7/trips.json");
+    const trips = await res.json();
+    console.log(trips);
+    dispatch({
+      type: "GET_TRIPS",
+      value: trips
+    });
+  };
+}
+},{}],"src/containers/Destination.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _reactRedux = require("react-redux");
+
+var _Destination = _interopRequireDefault(require("../components/Destination"));
+
+var _index = require("../actions/index");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function mapStateToProps(state) {
+  return {
+    trips: state.trips
+  };
+}
+
+const mapDispatchToProps = {
+  getTripsList: _index.getTripsList
+};
+
+var _default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Destination.default);
+
+exports.default = _default;
+},{"react-redux":"node_modules/react-redux/es/index.js","../components/Destination":"src/components/Destination.js","../actions/index":"src/actions/index.js"}],"src/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -33427,14 +33455,14 @@ var _react = _interopRequireDefault(require("react"));
 
 var _DestinationsList = _interopRequireDefault(require("./components/DestinationsList"));
 
-var _Destination = _interopRequireDefault(require("./components/Destination"));
+var _Destination = _interopRequireDefault(require("./containers/Destination"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function App() {
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Hello"), /*#__PURE__*/_react.default.createElement(_DestinationsList.default, null), /*#__PURE__*/_react.default.createElement(_Destination.default, null));
 }
-},{"react":"node_modules/react/index.js","./components/DestinationsList":"src/components/DestinationsList.js","./components/Destination":"src/components/Destination.js"}],"src/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./components/DestinationsList":"src/components/DestinationsList.js","./containers/Destination":"src/containers/Destination.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));

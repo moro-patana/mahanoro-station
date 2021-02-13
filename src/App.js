@@ -1,6 +1,6 @@
 import React from 'react'
 import DestinationsList from "./components/DestinationsList"
-import Destination from "./components/Destination"
+import Destination from "./containers/Destination"
 
 export default function App() {
     return (

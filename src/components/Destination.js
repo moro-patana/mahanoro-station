@@ -1,19 +1,15 @@
 import React, {useEffect} from 'react'
-import { useSelector } from "react-redux"
-import { getTripsList } from "../actions/index"
-
-export default function Destination() {
-    const trips = useSelector(state => state.trips)
+export default function Destination({trips, getTripsList}) {
     console.log(trips);
     useEffect(() => {
         getTripsList()
       }, [])
     return (
         <>
+        <h2>Next Trip to:</h2>
             {trips.map(trip => (
                 <div>
-                    <h2>Next Trip to:</h2>
-                    <p>{trip.Destination}</p>
+                    <p>{trip.destination}</p>
                 </div>
             ))}
         </>
