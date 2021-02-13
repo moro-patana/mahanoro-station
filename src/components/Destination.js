@@ -1,8 +1,13 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useSelector } from "react-redux"
+import { getTripsList } from "../actions/index"
 
 export default function Destination() {
     const trips = useSelector(state => state.trips)
+    console.log(trips);
+    useEffect(() => {
+        getTripsList()
+      }, [])
     return (
         <>
             {trips.map(trip => (
