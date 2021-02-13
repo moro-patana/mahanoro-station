@@ -11,7 +11,7 @@ export default function Destination({trips, getTripsList}) {
 		return (
 			<Link to={`/destination/${trip.id}`} key={trip.id}>
 				<div>
-					<h4>{new Date(trip.departureTime).toDateString()}</h4>
+					<h4>{new Date(trip.departureTime).toString()}</h4>
                     {trip.seats.map(seat => (
                         <p>{seat.isAvailable}</p>
                     ))}

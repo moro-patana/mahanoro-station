@@ -36385,7 +36385,7 @@ function Destination({
     return /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
       to: `/destination/${trip.id}`,
       key: trip.id
-    }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h4", null, new Date(trip.departureTime).toDateString()), trip.seats.map(seat => /*#__PURE__*/_react.default.createElement("p", null, seat.isAvailable))));
+    }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h4", null, new Date(trip.departureTime).toString()), trip.seats.map(seat => /*#__PURE__*/_react.default.createElement("p", null, seat.isAvailable))));
   }
 
   function showTripsFilteredByDestination() {
