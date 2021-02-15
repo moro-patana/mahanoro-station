@@ -12,6 +12,7 @@ export default function City({trips, getTripsList}) {
 			<Link to={`/destination/${trip.id}`} key={trip.id}>
 				<div>
 					<h4>{new Date(trip.departureTime).toString()}</h4>
+                    <span>{trip.seats.filter(seat => seat.isAvailable === true).length} seats left</span>
                     <Link to={`/trip/${trip.id}`}><button>Book a seat</button></Link>
 				</div>
 			</Link>
