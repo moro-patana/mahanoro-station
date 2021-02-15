@@ -8,10 +8,15 @@ export default function City({trips, getTripsList}) {
       }, [])
       
       function createTripTemplate(trip) {
+        var options = { weekday: 'long'};
 		return (
 			<Link to={`/destination/${trip.id}`} key={trip.id}>
 				<div>
-					<h4>{new Date(trip.departureTime).toString()}</h4>
+                <div>
+                    <h4>{new Intl.DateTimeFormat('en-US', options).format(trip.departureTime)}</h4>
+                    <p>{new Date(trip.departureTime).getHours()}:{new Date(trip.departureTime).getMinutes()}</p>
+                </div>
+                    <p>{new Date(trip.departureTime).toLocaleDateString()}</p>
                     <span>{trip.seats.filter(seat => seat.isAvailable === true).length} seats left</span>
                     <Link to={`/trip/${trip.id}`}><button>Book a seat</button></Link>
 				</div>
