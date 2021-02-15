@@ -36510,18 +36510,25 @@ exports.default = MyAccount;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _reactRedux = require("react-redux");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function MyAccount() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "My Account"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "My Personal Informations"), /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("label", null, "FirstName"), /*#__PURE__*/_react.default.createElement("input", {
-    type: "text"
-  })), /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("label", null, "Name"), /*#__PURE__*/_react.default.createElement("input", {
-    type: "text"
+  const myAccount = (0, _reactRedux.useSelector)(state => state.myAccount);
+  console.log(myAccount);
+  return /*#__PURE__*/_react.default.createElement("div", null, myAccount.map(account => /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "My Account"), /*#__PURE__*/_react.default.createElement("span", null, account.firstName, "  ", account.lastName, " "), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "My Personal Informations"), /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("label", null, "FirstName"), /*#__PURE__*/_react.default.createElement("input", {
+    type: "text",
+    value: account.firstName
+  })), /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("label", null, "LastName"), /*#__PURE__*/_react.default.createElement("input", {
+    type: "text",
+    value: account.lastName
   })), /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("label", null, "Phone Number"), /*#__PURE__*/_react.default.createElement("input", {
-    type: "number"
-  }))))));
+    type: "number",
+    value: account.phoneNumber
+  })), /*#__PURE__*/_react.default.createElement("button", null, "Update")))))));
 }
-},{"react":"node_modules/react/index.js"}],"src/components/TripsDetails.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js"}],"src/components/TripsDetails.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
