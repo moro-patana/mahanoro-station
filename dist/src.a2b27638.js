@@ -40361,7 +40361,7 @@ var _Modal = _interopRequireDefault(require("./containers/Modal"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function App() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Hello"), /*#__PURE__*/_react.default.createElement(_HeaderMenu.default, null), /*#__PURE__*/_react.default.createElement(_Modal.default, null), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_HeaderMenu.default, null), /*#__PURE__*/_react.default.createElement(_Modal.default, null), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     exact: true,
     path: "/"
   }, /*#__PURE__*/_react.default.createElement(_CitiesList.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
