@@ -36275,7 +36275,12 @@ exports.default = void 0;
 var _default = {
   displayModal: false,
   destinations: ["Antananarivo", "Toamasina", "Vatomandry", "Moramanga"],
-  trips: []
+  trips: [],
+  myAccount: [{
+    firstName: "Holisoa",
+    lastName: "Manjaka",
+    phoneNumber: "0345134581"
+  }]
 };
 exports.default = _default;
 },{}],"src/reducers/index.js":[function(require,module,exports) {
