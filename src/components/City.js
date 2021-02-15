@@ -7,12 +7,18 @@ export default function City({trips, getTripsList}) {
         getTripsList()
       }, [])
       
-      function createTripTemplate(trip) {
+      function createTripTemplate(trip, toggleModal) {
 		return (
 			<Link to={`/destination/${trip.id}`} key={trip.id}>
 				<div>
 					<h4>{new Date(trip.departureTime).toString()}</h4>
-                    <button>Book a seat</button>
+                    <button 
+                    onClick={()=>{
+                     if(toggleModal){
+                      toggleModal(true);
+            }
+          }
+        }>Book a seat</button>
 				</div>
 			</Link>
 		);
