@@ -10,7 +10,7 @@ export default function TripsDetails() {
                 <div>
                     <ul>
                         {trip.seats.map(seat => (
-                            <li>{seat}</li>
+                            <li>💺<span>{seat.id}</span></li>
                         ))}
                     </ul>
                 </div>

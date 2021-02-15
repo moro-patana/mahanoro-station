@@ -36504,7 +36504,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function TripsDetails() {
   const trips = (0, _reactRedux.useSelector)(state => state.trips);
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Book a seat to:"), trips.map(trip => /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("ul", null, trip.seats.map(seat => /*#__PURE__*/_react.default.createElement("li", null, seat))))));
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Book a seat to:"), trips.map(trip => /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("ul", null, trip.seats.map(seat => /*#__PURE__*/_react.default.createElement("li", null, "\uD83D\uDCBA", /*#__PURE__*/_react.default.createElement("span", null, seat.id)))))));
 }
 },{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js"}],"src/App.js":[function(require,module,exports) {
 "use strict";
