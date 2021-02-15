@@ -36273,6 +36273,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _default = {
+  displayModal: false,
   destinations: ["Antananarivo", "Toamasina", "Vatomandry", "Moramanga"],
   trips: []
 };
