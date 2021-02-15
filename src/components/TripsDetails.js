@@ -24,7 +24,7 @@ export default function TripsDetails({toggleModal}) {
 			<h3>Pick a seat</h3>
 				{trip?.seats.map(seat => (
                   <div>
-						<button className={seat.isAvailable === true ? "available-seat" : "booked-seat"}>{seat.id}</button>
+						<button value={seat.id} className={seat.isAvailable === true ? "available-seat" : "booked-seat"}>{seat.id}</button>
 				  </div>
 				))}
 				<div>
