@@ -38438,16 +38438,37 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactRouterDom = require("react-router-dom");
 
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+const Container = _styledComponents.default.div`
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ align-items: center;
+`;
+const Header = _styledComponents.default.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+`;
+const Title = _styledComponents.default.h1`
+   font-size: 32px;
+   color: black;
+
+`;
+
 function HeaderMenu() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/"
-  }, "\uD83D\uDE8D Mahanoro Satation"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  }, /*#__PURE__*/_react.default.createElement(Header, null, /*#__PURE__*/_react.default.createElement("i", {
+    className: "ri-bus-2-fill"
+  }), /*#__PURE__*/_react.default.createElement(Title, null, "Mahanoro Station"))), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/account"
   }, "My Account"));
 }
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"src/components/MyAccount.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/MyAccount.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
