@@ -7,6 +7,8 @@ const Container = styled.div`
  flex-direction: row;
  justify-content: space-between;
  align-items: center;
+ background-color: black;
+ padding: 20px;
 `;
 
 const Header = styled.div`
@@ -16,8 +18,12 @@ const Header = styled.div`
 `;
 const Title = styled.h1`
    font-size: 32px;
-   color: black;
-
+   color: white;
+`;
+const Account = styled.div`
+    font-size: 24px;
+    line-height: 28px;
+    color: #A7A9BE;
 `;
 export default function HeaderMenu() {
     return (
@@ -28,7 +34,9 @@ export default function HeaderMenu() {
                     <Title>Mahanoro Station</Title>
                 </Header>
             </Link>
-            <Link to="/account">My Account</Link>
+            <Link to="/account">
+                <Account>My Account</Account>
+            </Link>
         </Container>
     )
 }

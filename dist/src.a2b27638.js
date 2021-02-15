@@ -38447,6 +38447,8 @@ const Container = _styledComponents.default.div`
  flex-direction: row;
  justify-content: space-between;
  align-items: center;
+ background-color: black;
+ padding: 20px;
 `;
 const Header = _styledComponents.default.div`
     display: flex;
@@ -38455,8 +38457,12 @@ const Header = _styledComponents.default.div`
 `;
 const Title = _styledComponents.default.h1`
    font-size: 32px;
-   color: black;
-
+   color: white;
+`;
+const Account = _styledComponents.default.div`
+    font-size: 24px;
+    line-height: 28px;
+    color: #A7A9BE;
 `;
 
 function HeaderMenu() {
@@ -38466,7 +38472,7 @@ function HeaderMenu() {
     className: "ri-bus-2-fill"
   }), /*#__PURE__*/_react.default.createElement(Title, null, "Mahanoro Station"))), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/account"
-  }, "My Account"));
+  }, /*#__PURE__*/_react.default.createElement(Account, null, "My Account")));
 }
 },{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/MyAccount.js":[function(require,module,exports) {
 "use strict";
