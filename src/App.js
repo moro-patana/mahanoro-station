@@ -4,13 +4,15 @@ import CitiesList from "./components/CitiesList"
 import City from "./containers/City"
 import HeaderMenu from "./components/HeaderMenu"
 import MyAccount from './components/MyAccount';
-import TripsDetails from './components/TripsDetails';
+import TripsDetails from './containers/TripsDetails';
+import Modal from "./containers/Modal"
 
 export default function App() {
     return (
         <div>
             <h1>Hello</h1>
             <HeaderMenu/>
+            <Modal/>
             {/* <TripsDetails/> */}
             <Switch>
                 <Route exact path="/"><CitiesList/></Route>
