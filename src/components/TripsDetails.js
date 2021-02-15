@@ -3,10 +3,11 @@ import { Link } from "react-router-dom"
 import { useParams, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-export default function TripsDetails() {
+export default function TripsDetails({toggleModal}) {
 	const { tripId } = useParams();
 
 	const trips = useSelector((state) => state.trips);
+	
 	console.log(trips);
 	const history = useHistory();
 
@@ -44,8 +45,17 @@ export default function TripsDetails() {
 						<p>
 							<span>Breaks: {trip?.breaks}</span>
 						</p>
-						<p>Fare: {trip?.price}</p>
-						<button>Book<small></small>seat</button>
+						<p>Fare: {trip?.price} Ar/seat</p>
+						<button
+						onClick={()=>{
+							if(toggleModal){
+							  toggleModal(true);
+							}
+						  }
+						}
+						>
+							Book<small></small>seat
+						</button>
 						<p>Total: Ar</p>
 					</div>
 				</div>
