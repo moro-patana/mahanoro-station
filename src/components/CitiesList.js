@@ -8,7 +8,7 @@ export default function CitiesList() {
         <div>
             <h2>🚍Where are you going?</h2>
             {destinations.map((destination) => (
-                <Link to={`/destination/${destination}`}>
+                <Link to={`/${destination}`}>
                     <span>🏙{destination}</span>
                 </Link>
             ))}
