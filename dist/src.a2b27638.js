@@ -36508,19 +36508,32 @@ function MyAccount() {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = TripsDetails;
+exports.default = DestinationDetails;
 
 var _react = _interopRequireDefault(require("react"));
+
+var _reactRouterDom = require("react-router-dom");
 
 var _reactRedux = require("react-redux");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function TripsDetails() {
+function DestinationDetails() {
+  const {
+    tripId
+  } = (0, _reactRouterDom.useParams)();
   const trips = (0, _reactRedux.useSelector)(state => state.trips);
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Book a seat to:"), trips.map(trip => /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("ul", null, trip.seats.map(seat => /*#__PURE__*/_react.default.createElement("li", null, "\uD83D\uDCBA", /*#__PURE__*/_react.default.createElement("span", null, seat.id)))))));
+  console.log(trips);
+  const history = (0, _reactRouterDom.useHistory)();
+  const trip = trips.find(trip => trip.id == tripId);
+  console.log(trip);
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Next trip to:", trip?.destination), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "Pick a seat"), trip?.seats.map(seat => /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
+    className: seat.isAvailable === true ? "available-seat" : "booked-seat"
+  }, seat.id))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "Trip Informations:"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Departure Time: ", trip?.departureTime)), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Driver: ", trip?.driverName)), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Driver's contact: ", trip?.driverContact)), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Estimated duration: ", trip?.estimatedDuration)), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Breaks: ", trip?.breaks)), /*#__PURE__*/_react.default.createElement("p", null, "Fare: ", trip?.price), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/modal"
+  }, /*#__PURE__*/_react.default.createElement("button", null, "Book", /*#__PURE__*/_react.default.createElement("small", null), "seat")), /*#__PURE__*/_react.default.createElement("p", null, "Total: Ar")))));
 }
-},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js"}],"src/App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","react-redux":"node_modules/react-redux/es/index.js"}],"src/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
