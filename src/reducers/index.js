@@ -10,7 +10,11 @@ function trips(trips=[], action) {
 function destinations(state=[], action) {
     return state;
 }
+function displayModal(state=false, action) {
+    return state
+}
 export default combineReducers({
     trips,
-    destinations
+    destinations,
+    displayModal
 })

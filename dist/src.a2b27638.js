@@ -36302,9 +36302,14 @@ function destinations(state = [], action) {
   return state;
 }
 
+function displayModal(state = false, action) {
+  return state;
+}
+
 var _default = (0, _redux.combineReducers)({
   trips,
-  destinations
+  destinations,
+  displayModal
 });
 
 exports.default = _default;
