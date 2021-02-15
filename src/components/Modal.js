@@ -16,7 +16,7 @@ export default function Modal({toggleModal, displayModal}) {
             Your booking has been added to your account. You can review it there.
             </p>
             <Link to={`/account`}>
-                <button>Check your account</button>
+            <button onClick={()=>{if(toggleModal) {toggleModal(false) }}}>Check your account</button>
             </Link>
         </ModalPage>
     )

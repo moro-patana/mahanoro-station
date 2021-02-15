@@ -38361,7 +38361,13 @@ function Modal({
     }
   }, "close"), /*#__PURE__*/_react.default.createElement("h4", null, "Booking confirmed"), /*#__PURE__*/_react.default.createElement("p", null, "Thank you for trusting our services. Your booking has been added to your account. You can review it there."), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: `/account`
-  }, /*#__PURE__*/_react.default.createElement("button", null, "Check your account")));
+  }, /*#__PURE__*/_react.default.createElement("button", {
+    onClick: () => {
+      if (toggleModal) {
+        toggleModal(false);
+      }
+    }
+  }, "Check your account")));
 }
 },{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","react-redux":"node_modules/react-redux/es/index.js","react-modal":"node_modules/react-modal/lib/index.js"}],"src/containers/Modal.js":[function(require,module,exports) {
 "use strict";
