@@ -36534,7 +36534,6 @@ function MyAccount() {
     type: "text",
     value: account.lastName
   })), /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("label", null, "Phone Number"), /*#__PURE__*/_react.default.createElement("input", {
-    type: "number",
     value: account.phoneNumber
   })), /*#__PURE__*/_react.default.createElement("button", null, "Update")))))));
 }

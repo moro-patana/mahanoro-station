@@ -31,7 +31,6 @@ export default function MyAccount() {
                             <fieldset>
                                 <label>Phone Number</label>
                                 <input
-                                type="number"
                                 value={account.phoneNumber}
                                 />
                             </fieldset>
