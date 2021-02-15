@@ -36330,13 +36330,13 @@ console.log(_state.default);
 let store = (0, _redux.createStore)(_index.default, _state.default, (0, _redux.applyMiddleware)(_reduxThunk.default));
 var _default = store;
 exports.default = _default;
-},{"redux":"node_modules/redux/es/redux.js","redux-thunk":"node_modules/redux-thunk/es/index.js","./state":"src/state.js","./reducers/index":"src/reducers/index.js"}],"src/components/DestinationsList.js":[function(require,module,exports) {
+},{"redux":"node_modules/redux/es/redux.js","redux-thunk":"node_modules/redux-thunk/es/index.js","./state":"src/state.js","./reducers/index":"src/reducers/index.js"}],"src/components/CitiesList.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = DestinationsList;
+exports.default = CitiesList;
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -36346,19 +36346,19 @@ var _reactRouterDom = require("react-router-dom");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function DestinationsList() {
+function CitiesList() {
   const destinations = (0, _reactRedux.useSelector)(state => state.destinations);
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "\uD83D\uDE8DWhere are you going?"), destinations.map(destination => /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: `/destination/${destination}`
   }, /*#__PURE__*/_react.default.createElement("span", null, "\uD83C\uDFD9", destination))));
 }
-},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"src/components/Destination.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"src/components/City.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = Destination;
+exports.default = City;
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -36368,7 +36368,7 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function Destination({
+function City({
   trips,
   getTripsList
 }) {
@@ -36418,7 +36418,7 @@ function getTripsList() {
     });
   };
 }
-},{}],"src/containers/Destination.js":[function(require,module,exports) {
+},{}],"src/containers/City.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36428,7 +36428,7 @@ exports.default = void 0;
 
 var _reactRedux = require("react-redux");
 
-var _Destination = _interopRequireDefault(require("../components/Destination"));
+var _City = _interopRequireDefault(require("../components/City"));
 
 var _index = require("../actions/index");
 
@@ -36444,10 +36444,10 @@ const mapDispatchToProps = {
   getTripsList: _index.getTripsList
 };
 
-var _default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Destination.default);
+var _default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_City.default);
 
 exports.default = _default;
-},{"react-redux":"node_modules/react-redux/es/index.js","../components/Destination":"src/components/Destination.js","../actions/index":"src/actions/index.js"}],"src/components/HeaderMenu.js":[function(require,module,exports) {
+},{"react-redux":"node_modules/react-redux/es/index.js","../components/City":"src/components/City.js","../actions/index":"src/actions/index.js"}],"src/components/HeaderMenu.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36519,9 +36519,9 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactRouterDom = require("react-router-dom");
 
-var _DestinationsList = _interopRequireDefault(require("./components/DestinationsList"));
+var _CitiesList = _interopRequireDefault(require("./components/CitiesList"));
 
-var _Destination = _interopRequireDefault(require("./containers/Destination"));
+var _City = _interopRequireDefault(require("./containers/City"));
 
 var _HeaderMenu = _interopRequireDefault(require("./components/HeaderMenu"));
 
@@ -36535,13 +36535,13 @@ function App() {
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Hello"), /*#__PURE__*/_react.default.createElement(_HeaderMenu.default, null), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     exact: true,
     path: "/destination"
-  }, /*#__PURE__*/_react.default.createElement(_DestinationsList.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+  }, /*#__PURE__*/_react.default.createElement(_CitiesList.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: "/destination/:destinationName"
-  }, /*#__PURE__*/_react.default.createElement(_Destination.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+  }, /*#__PURE__*/_react.default.createElement(_City.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: "/account"
   }, /*#__PURE__*/_react.default.createElement(_MyAccount.default, null))));
 }
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./components/DestinationsList":"src/components/DestinationsList.js","./containers/Destination":"src/containers/Destination.js","./components/HeaderMenu":"src/components/HeaderMenu.js","./components/MyAccount":"src/components/MyAccount.js","./components/TripsDetails":"src/components/TripsDetails.js"}],"src/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./components/CitiesList":"src/components/CitiesList.js","./containers/City":"src/containers/City.js","./components/HeaderMenu":"src/components/HeaderMenu.js","./components/MyAccount":"src/components/MyAccount.js","./components/TripsDetails":"src/components/TripsDetails.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));

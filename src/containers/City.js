@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import Destination from '../components/Destination';
+import City from '../components/City';
 import {getTripsList} from "../actions/index"
 
 function mapStateToProps(state){
@@ -11,4 +11,4 @@ const mapDispatchToProps = {
     getTripsList,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Destination)
+export default connect(mapStateToProps, mapDispatchToProps)(City)

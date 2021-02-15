@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import { useParams, Link } from 'react-router-dom';
-export default function Destination({trips, getTripsList}) {
+export default function City({trips, getTripsList}) {
     const { destinationName } = useParams();
     console.log(trips);
     useEffect(() => {
