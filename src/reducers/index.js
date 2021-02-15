@@ -11,7 +11,14 @@ function destinations(state=[], action) {
     return state;
 }
 function displayModal(state=false, action) {
-    return state
+    switch(action.type) {
+        case "OPEN_MODAL":
+          return !state;
+        case "CLOSE_MODAL":
+          return state = false;
+        default:
+          return state;
+      }
 }
 export default combineReducers({
     trips,
