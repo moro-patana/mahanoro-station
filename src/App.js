@@ -14,7 +14,7 @@ export default function App() {
             {/* <TripsDetails/> */}
             <Switch>
                 <Route exact path="/"><CitiesList/></Route>
-                <Route path="/destination/:destinationName"><City/></Route>
+                <Route path="/city/:cityName"><City/></Route>
                 <Route path="/account"><MyAccount/></Route>
             </Switch>
         </div>
