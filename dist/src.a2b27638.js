@@ -36411,9 +36411,11 @@ function City({
     return /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
       to: `/destination/${trip.id}`,
       key: trip.id
-    }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h4", null, new Intl.DateTimeFormat('en-US', options).format(trip.departureTime)), /*#__PURE__*/_react.default.createElement("p", null, new Date(trip.departureTime).getHours(), ":", new Date(trip.departureTime).getMinutes())), /*#__PURE__*/_react.default.createElement("p", null, new Date(trip.departureTime).toLocaleDateString()), /*#__PURE__*/_react.default.createElement("span", null, trip.seats.filter(seat => seat.isAvailable === true).length, " seats left"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("i", {
+      className: "ri-bus-2-fill"
+    }), /*#__PURE__*/_react.default.createElement("h4", null, new Intl.DateTimeFormat('en-US', options).format(trip.departureTime)), /*#__PURE__*/_react.default.createElement("p", null, new Date(trip.departureTime).getHours(), ":", new Date(trip.departureTime).getMinutes())), /*#__PURE__*/_react.default.createElement("p", null, new Date(trip.departureTime).toLocaleDateString()), /*#__PURE__*/_react.default.createElement("span", null, trip.seats.filter(seat => seat.isAvailable === true).length, " seats left"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
       to: `/trip/${trip.id}`
-    }, /*#__PURE__*/_react.default.createElement("button", null, "Book a seat"))));
+    }, /*#__PURE__*/_react.default.createElement("button", null, "Book a seat")));
   }
 
   function showTripsFilteredByDestination() {
