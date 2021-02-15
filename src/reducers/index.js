@@ -20,8 +20,12 @@ function displayModal(state=false, action) {
           return state;
       }
 }
+function myAccount(state=[], action) {
+    return state;
+}
 export default combineReducers({
     trips,
     destinations,
-    displayModal
+    displayModal,
+    myAccount
 })

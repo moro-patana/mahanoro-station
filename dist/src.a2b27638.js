@@ -36320,10 +36320,15 @@ function displayModal(state = false, action) {
   }
 }
 
+function myAccount(state = [], action) {
+  return state;
+}
+
 var _default = (0, _redux.combineReducers)({
   trips,
   destinations,
-  displayModal
+  displayModal,
+  myAccount
 });
 
 exports.default = _default;
