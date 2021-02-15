@@ -36349,7 +36349,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function CitiesList() {
   const destinations = (0, _reactRedux.useSelector)(state => state.destinations);
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "\uD83D\uDE8DWhere are you going?"), destinations.map(destination => /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-    to: `/${destination}`
+    to: `/city/${destination}`
   }, /*#__PURE__*/_react.default.createElement("span", null, "\uD83C\uDFD9", destination))));
 }
 },{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"src/components/City.js":[function(require,module,exports) {
