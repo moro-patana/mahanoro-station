@@ -36373,7 +36373,7 @@ function City({
   getTripsList
 }) {
   const {
-    destinationName
+    cityName
   } = (0, _reactRouterDom.useParams)();
   console.log(trips);
   (0, _react.useEffect)(() => {
@@ -36388,7 +36388,7 @@ function City({
   }
 
   function showTripsFilteredByDestination() {
-    const filteredTrips = trips.filter(trip => trip.destination === destinationName).map(createTripTemplate);
+    const filteredTrips = trips.filter(trip => trip.destination === cityName).map(createTripTemplate);
 
     if (filteredTrips.length === 0) {
       return /*#__PURE__*/_react.default.createElement("p", null, "No results.");

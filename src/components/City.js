@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import { useParams, Link } from 'react-router-dom';
 export default function City({trips, getTripsList}) {
-    const { destinationName } = useParams();
+    const { cityName } = useParams();
     console.log(trips);
     useEffect(() => {
         getTripsList()
@@ -19,7 +19,7 @@ export default function City({trips, getTripsList}) {
         }
         function showTripsFilteredByDestination() {
             const filteredTrips = trips
-                .filter((trip) => trip.destination === destinationName)
+                .filter((trip) => trip.destination === cityName)
                 .map(createTripTemplate);
             if (filteredTrips.length === 0) {
                 return <p>No results.</p>;
