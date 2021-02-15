@@ -1,8 +1,12 @@
-/* li {
+li {
     list-style: none;
 }
-span {
-    display: none;
-} */
+a {
+    text-decoration: none;
+}
+i {
+    color: orange;
+    font-size: 40px;
+}
 
 /*# sourceMappingURL=/src.f41506f2.css.map */
