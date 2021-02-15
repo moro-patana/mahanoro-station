@@ -13,7 +13,7 @@ export default function App() {
             <HeaderMenu/>
             {/* <TripsDetails/> */}
             <Switch>
-                <Route exact path="/destination"><CitiesList/></Route>
+                <Route exact path="/"><CitiesList/></Route>
                 <Route path="/destination/:destinationName"><City/></Route>
                 <Route path="/account"><MyAccount/></Route>
             </Switch>
