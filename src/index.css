@@ -1,6 +1,10 @@
-/* li {
+li {
     list-style: none;
 }
-span {
-    display: none;
-} */
+a {
+    text-decoration: none;
+}
+i {
+    color: orange;
+    font-size: 40px;
+}
