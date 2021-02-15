@@ -36508,7 +36508,7 @@ function MyAccount() {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = TripDetails;
+exports.default = TripsDetails;
 
 var _react = _interopRequireDefault(require("react"));
 
@@ -36518,7 +36518,7 @@ var _reactRedux = require("react-redux");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function TripDetails() {
+function TripsDetails() {
   const {
     tripId
   } = (0, _reactRouterDom.useParams)();
