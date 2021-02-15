@@ -36412,6 +36412,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.getTripsList = getTripsList;
+exports.openModal = openModal;
 
 function getTripsList() {
   return async dispatch => {
@@ -36422,6 +36423,13 @@ function getTripsList() {
       type: "GET_TRIPS",
       value: trips
     });
+  };
+}
+
+function openModal(modal) {
+  return {
+    type: "OPEN_MODAL",
+    payload: modal
   };
 }
 },{}],"src/containers/City.js":[function(require,module,exports) {

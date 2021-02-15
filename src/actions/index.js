@@ -9,3 +9,10 @@ export function getTripsList() {
       })
     }
   }
+
+  export function openModal(modal){
+    return {
+      type: "OPEN_MODAL",
+      payload: modal
+    }
+  }
