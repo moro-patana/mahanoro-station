@@ -36529,9 +36529,7 @@ function TripsDetails() {
   console.log(trip);
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Next trip to:", trip?.destination), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "Pick a seat"), trip?.seats.map(seat => /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
     className: seat.isAvailable === true ? "available-seat" : "booked-seat"
-  }, seat.id))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "Trip Informations:"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Departure Time: ", trip?.departureTime)), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Driver: ", trip?.driverName)), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Driver's contact: ", trip?.driverContact)), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Estimated duration: ", trip?.estimatedDuration)), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Breaks: ", trip?.breaks)), /*#__PURE__*/_react.default.createElement("p", null, "Fare: ", trip?.price), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-    to: "/modal"
-  }, /*#__PURE__*/_react.default.createElement("button", null, "Book", /*#__PURE__*/_react.default.createElement("small", null), "seat")), /*#__PURE__*/_react.default.createElement("p", null, "Total: Ar")))));
+  }, seat.id))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "Trip Informations:"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Departure Time: ", trip?.departureTime)), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Driver: ", trip?.driverName)), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Driver's contact: ", trip?.driverContact)), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Estimated duration: ", trip?.estimatedDuration)), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Breaks: ", trip?.breaks)), /*#__PURE__*/_react.default.createElement("p", null, "Fare: ", trip?.price), /*#__PURE__*/_react.default.createElement("button", null, "Book", /*#__PURE__*/_react.default.createElement("small", null), "seat"), /*#__PURE__*/_react.default.createElement("p", null, "Total: Ar")))));
 }
 },{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","react-redux":"node_modules/react-redux/es/index.js"}],"src/App.js":[function(require,module,exports) {
 "use strict";
@@ -36565,7 +36563,10 @@ function App() {
     path: "/city/:cityName"
   }, /*#__PURE__*/_react.default.createElement(_City.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: "/account"
-  }, /*#__PURE__*/_react.default.createElement(_MyAccount.default, null))));
+  }, /*#__PURE__*/_react.default.createElement(_MyAccount.default, null)), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+    exact: true,
+    path: "/trip/:tripId"
+  }, /*#__PURE__*/_react.default.createElement(_TripsDetails.default, null))));
 }
 },{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./components/CitiesList":"src/components/CitiesList.js","./containers/City":"src/containers/City.js","./components/HeaderMenu":"src/components/HeaderMenu.js","./components/MyAccount":"src/components/MyAccount.js","./components/TripsDetails":"src/components/TripsDetails.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";

@@ -16,6 +16,9 @@ export default function App() {
                 <Route exact path="/"><CitiesList/></Route>
                 <Route path="/city/:cityName"><City/></Route>
                 <Route path="/account"><MyAccount/></Route>
+                <Route exact path="/trip/:tripId">
+					<TripsDetails />
+				</Route>
             </Switch>
         </div>
     )

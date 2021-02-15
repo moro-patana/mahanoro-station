@@ -45,9 +45,7 @@ export default function TripsDetails() {
 							<span>Breaks: {trip?.breaks}</span>
 						</p>
 						<p>Fare: {trip?.price}</p>
-						<Link to="/modal">
 						<button>Book<small></small>seat</button>
-						</Link>
 						<p>Total: Ar</p>
 					</div>
 				</div>
