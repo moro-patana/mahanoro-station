@@ -38323,6 +38323,27 @@ const Container = _styledComponents.default.div`
     justify-content: space-between;
     align-items: center;
 `;
+const Header = _styledComponents.default.h2`
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+`;
+const CityName = _styledComponents.default.span`
+   color: #E53170;
+   font-size: 24px;
+`;
+const Button = _styledComponents.default.button`
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-size: 18px;
+    background-color: #E53170;
+    border: none;
+    color: white;
+`;
 
 function City({
   trips,
@@ -38347,7 +38368,7 @@ function City({
       className: "ri-bus-2-fill"
     }), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h4", null, new Intl.DateTimeFormat('en-US', options).format(trip.departureTime)), /*#__PURE__*/_react.default.createElement("p", null, new Date(trip.departureTime).getHours(), ":", new Date(trip.departureTime).getMinutes())), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, new Date(trip.departureTime).toLocaleDateString()), /*#__PURE__*/_react.default.createElement("span", null, trip.seats.filter(seat => seat.isAvailable === true).length, " seats left")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
       to: `/trip/${trip.id}`
-    }, /*#__PURE__*/_react.default.createElement("button", null, "Book a seat"))));
+    }, /*#__PURE__*/_react.default.createElement(Button, null, "Book a seat"))));
   }
 
   function showTripsFilteredByDestination() {
@@ -38360,7 +38381,7 @@ function City({
     return filteredTrips;
   }
 
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h2", null, "Next Trip to:"), /*#__PURE__*/_react.default.createElement("div", null, showTripsFilteredByDestination()));
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(Header, null, /*#__PURE__*/_react.default.createElement("span", null, "Next Trip to:"), /*#__PURE__*/_react.default.createElement(CityName, null, cityName)), /*#__PURE__*/_react.default.createElement("div", null, showTripsFilteredByDestination()));
 }
 },{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/actions/index.js":[function(require,module,exports) {
 "use strict";

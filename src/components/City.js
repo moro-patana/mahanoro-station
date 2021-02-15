@@ -8,6 +8,27 @@ const Container = styled.div`
     justify-content: space-between;
     align-items: center;
 `;
+const Header = styled.h2`
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+`;
+const CityName = styled.span`
+   color: #E53170;
+   font-size: 24px;
+`;
+const Button = styled.button`
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-size: 18px;
+    background-color: #E53170;
+    border: none;
+    color: white;
+`;
 export default function City({trips, getTripsList}) {
     const { cityName } = useParams();
     console.log(trips);
@@ -29,7 +50,7 @@ export default function City({trips, getTripsList}) {
                         <p>{new Date(trip.departureTime).toLocaleDateString()}</p>
                         <span>{trip.seats.filter(seat => seat.isAvailable === true).length} seats left</span>
                     </div>
-                    <Link to={`/trip/${trip.id}`}><button>Book a seat</button></Link>
+                    <Link to={`/trip/${trip.id}`}><Button>Book a seat</Button></Link>
 			   </Container>
             </Link>
 		);
@@ -45,7 +66,10 @@ export default function City({trips, getTripsList}) {
         }
     return (
         <>
-        <h2>Next Trip to:</h2>
+        <Header>
+            <span>Next Trip to:</span> 
+            <CityName>{cityName}</CityName>
+        </Header>
             <div>{showTripsFilteredByDestination()}</div>
         </>
     )
