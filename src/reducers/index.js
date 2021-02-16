@@ -23,9 +23,13 @@ function displayModal(state=false, action) {
 function myAccount(state=[], action) {
     return state;
 }
+function bookedSeats(state=[], action) {
+    return state;
+}
 export default combineReducers({
     trips,
     destinations,
     displayModal,
-    myAccount
+    myAccount,
+    bookedSeats
 })

@@ -36325,11 +36325,16 @@ function myAccount(state = [], action) {
   return state;
 }
 
+function bookedSeats(state = [], action) {
+  return state;
+}
+
 var _default = (0, _redux.combineReducers)({
   trips,
   destinations,
   displayModal,
-  myAccount
+  myAccount,
+  bookedSeats
 });
 
 exports.default = _default;
