@@ -38558,7 +38558,9 @@ function MyAccount() {
     value: account.phoneNumber
   })), /*#__PURE__*/_react.default.createElement("button", null, "Update")))))));
 }
-},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js"}],"src/components/TripsDetails.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js"}],"src/img/seat.png":[function(require,module,exports) {
+module.exports = "/seat.432111d5.png";
+},{}],"src/components/TripsDetails.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38572,7 +38574,45 @@ var _reactRouterDom = require("react-router-dom");
 
 var _reactRedux = require("react-redux");
 
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _seat = _interopRequireDefault(require("../img/seat.png"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const Container = _styledComponents.default.div`
+   display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+`;
+const Header = _styledComponents.default.h2`
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+`;
+const CityName = _styledComponents.default.span`
+   color: #E53170;
+   font-size: 24px;
+`;
+const Button = _styledComponents.default.button`
+   border: none;
+   margin-bottom: 20px;
+   padding: 10px;
+   cursor: pointer;
+`;
+const Seats = _styledComponents.default.div`
+   display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+	.booked-seat {
+	   background-color: red;
+   }
+`;
+const Image = _styledComponents.default.img`
+   width: 60px;
+`;
 
 function TripsDetails({
   toggleModal
@@ -38581,14 +38621,14 @@ function TripsDetails({
     tripId
   } = (0, _reactRouterDom.useParams)();
   const trips = (0, _reactRedux.useSelector)(state => state.trips);
-  console.log(trips);
-  const history = (0, _reactRouterDom.useHistory)();
   const trip = trips.find(trip => trip.id == tripId);
   console.log(trip);
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h1", null, "Next trip to:", trip?.destination), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "Pick a seat"), trip?.seats.map(seat => /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Header, null, "Book a seat to:", /*#__PURE__*/_react.default.createElement(CityName, null, trip?.destination)), /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "Pick a seat"), /*#__PURE__*/_react.default.createElement(Seats, null, trip?.seats.map(seat => /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Button, {
     value: seat.id,
     className: seat.isAvailable === true ? "available-seat" : "booked-seat"
-  }, seat.id))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "Trip Informations:"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Departure Time: ", trip?.departureTime)), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Driver: ", trip?.driverName)), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Driver's contact: ", trip?.driverContact)), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Estimated duration: ", trip?.estimatedDuration)), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Breaks: ", trip?.breaks)), /*#__PURE__*/_react.default.createElement("p", null, "Fare: ", trip?.price, " Ar/seat"), /*#__PURE__*/_react.default.createElement("button", {
+  }, /*#__PURE__*/_react.default.createElement(Image, {
+    src: _seat.default
+  })))))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "Trip Informations:"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Departure Time: ", trip?.departureTime)), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Driver: ", trip?.driverName)), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Driver's contact: ", trip?.driverContact)), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Estimated duration: ", trip?.estimatedDuration)), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Breaks: ", trip?.breaks)), /*#__PURE__*/_react.default.createElement("p", null, "Fare: ", trip?.price, " Ar/seat"), /*#__PURE__*/_react.default.createElement("button", {
     onClick: () => {
       if (toggleModal) {
         toggleModal(true);
@@ -38596,7 +38636,7 @@ function TripsDetails({
     }
   }, "Book", /*#__PURE__*/_react.default.createElement("small", null), "seat"), /*#__PURE__*/_react.default.createElement("p", null, "Total: Ar")))));
 }
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","react-redux":"node_modules/react-redux/es/index.js"}],"src/containers/TripsDetails.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","react-redux":"node_modules/react-redux/es/index.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js","../img/seat.png":"src/img/seat.png"}],"src/containers/TripsDetails.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
