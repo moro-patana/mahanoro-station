@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styled from "styled-components"
-import Seat from "../img/seat.png"
+import Seat from "../img/emojione_seat.svg"
 
 const Container = styled.div`
    display: flex;
