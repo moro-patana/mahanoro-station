@@ -1,4 +1,5 @@
 export default {
+    bookedSeats: [],
     displayModal: false,
     destinations: ["Antananarivo", "Toamasina", "Vatomandry", "Moramanga"],
     trips: [],
