@@ -38296,27 +38296,42 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const Container = _styledComponents.default.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 20px;
+    column-gap: 30px;
+    
 `;
-const CityName = _styledComponents.default.p`
+const Title = _styledComponents.default.h2`
+    text-align: center;
+    margin: 0;
+    padding: 100px;
+    font-size: 40px;
+`;
+const CityName = _styledComponents.default.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 20px;
-    padding: 20px;
+    padding: 10px;
     background-color: black;
     color: white;
 
     span {
         text-transform: uppercase;
-        font-size: 32px;
+        font-size: 25px;
     }
+`;
+const List = _styledComponents.default.li`
+   text-transform: uppercase;
+    font-size: 32px;
 `;
 
 function CitiesList() {
   const destinations = (0, _reactRedux.useSelector)(state => state.destinations);
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "\uD83D\uDE8DWhere are you going?"), destinations.map(destination => /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Title, null, "\uD83D\uDE8DWhere are you going?"), /*#__PURE__*/_react.default.createElement(Container, null, destinations.map(destination => /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: `/city/${destination}`
   }, /*#__PURE__*/_react.default.createElement(CityName, null, /*#__PURE__*/_react.default.createElement("i", {
-    class: "ri-community-line"
-  }), /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement("ul", null, /*#__PURE__*/_react.default.createElement("li", null, destination)))))));
+    className: "ri-community-line"
+  }), /*#__PURE__*/_react.default.createElement("ul", null, /*#__PURE__*/_react.default.createElement(List, null, destination)))))));
 }
 },{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/City.js":[function(require,module,exports) {
 "use strict";
@@ -40490,7 +40505,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50775" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58806" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
