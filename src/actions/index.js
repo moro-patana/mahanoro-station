@@ -22,3 +22,9 @@ export function getTripsList() {
       payload: modal
     }
   }
+  export function pickSeat(seat) {
+    return {
+      type: 'PIC_SEAT',
+      payload: seat,
+    };
+  }

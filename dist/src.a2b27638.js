@@ -38434,6 +38434,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.getTripsList = getTripsList;
 exports.openModal = openModal;
 exports.closeModal = closeModal;
+exports.pickSeat = pickSeat;
 
 function getTripsList() {
   return async dispatch => {
@@ -38458,6 +38459,13 @@ function closeModal(modal) {
   return {
     type: "CLOSE_MODAL",
     payload: modal
+  };
+}
+
+function pickSeat(seat) {
+  return {
+    type: 'PIC_SEAT',
+    payload: seat
   };
 }
 },{}],"src/containers/City.js":[function(require,module,exports) {
