@@ -24,8 +24,19 @@ function myAccount(state=[], action) {
     return state;
 }
 function bookedSeats(state=[], action) {
-    return state;
+    switch(action.type) {
+        case "PICK_SEAT":
+            return [...state, action.payload]
+        case 'REMOVE_CART_ITEM':
+            const newCartWithoutSpecificItem = state.filter(
+                (item) => item.id !== action.payload
+                );
+                return [...newCartWithoutSpecificItem];
+        default:
+            return state;
+    }
 }
+
 export default combineReducers({
     trips,
     destinations,

@@ -36326,7 +36326,17 @@ function myAccount(state = [], action) {
 }
 
 function bookedSeats(state = [], action) {
-  return state;
+  switch (action.type) {
+    case "PICK_SEAT":
+      return [...state, action.payload];
+
+    case 'REMOVE_CART_ITEM':
+      const newCartWithoutSpecificItem = state.filter(item => item.id !== action.payload);
+      return [...newCartWithoutSpecificItem];
+
+    default:
+      return state;
+  }
 }
 
 var _default = (0, _redux.combineReducers)({
@@ -38435,6 +38445,7 @@ exports.getTripsList = getTripsList;
 exports.openModal = openModal;
 exports.closeModal = closeModal;
 exports.pickSeat = pickSeat;
+exports.removeCartItem = removeCartItem;
 
 function getTripsList() {
   return async dispatch => {
@@ -38466,6 +38477,13 @@ function pickSeat(seat) {
   return {
     type: 'PIC_SEAT',
     payload: seat
+  };
+}
+
+function removeCartItem(songId) {
+  return {
+    type: 'REMOVE_CART_ITEM',
+    payload: songId
   };
 }
 },{}],"src/containers/City.js":[function(require,module,exports) {
@@ -38545,7 +38563,39 @@ function HeaderMenu() {
     to: "/account"
   }, /*#__PURE__*/_react.default.createElement(Account, null, "My Account")));
 }
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/MyAccount.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/BookedSeats.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactRedux = require("react-redux");
+
+var _index = require("../actions/index");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function BookedSeats({
+  bookedSeats,
+  removeCartItem
+}) {
+  return /*#__PURE__*/_react.default.createElement("div", null, bookedSeats.map(seat => /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("i", {
+    className: "ri-bus-2-fill"
+  }), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, seat.destination), /*#__PURE__*/_react.default.createElement("p", null, seat.departureTime)), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null), /*#__PURE__*/_react.default.createElement("p", null, seat.price)), /*#__PURE__*/_react.default.createElement("button", null, "Cancel"))), /*#__PURE__*/_react.default.createElement("p", null, "Hello"));
+}
+
+var _default = (0, _reactRedux.connect)(state => ({
+  bookedSeats: state.bookedSeats
+}), {
+  removeCartItem: _index.removeCartItem
+})(BookedSeats);
+
+exports.default = _default;
+},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","../actions/index":"src/actions/index.js"}],"src/components/MyAccount.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38557,22 +38607,22 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactRedux = require("react-redux");
 
+var _BookedSeats = _interopRequireDefault(require("../components/BookedSeats"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function MyAccount() {
   const myAccount = (0, _reactRedux.useSelector)(state => state.myAccount);
   console.log(myAccount);
   return /*#__PURE__*/_react.default.createElement("div", null, myAccount.map(account => /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "My Account"), /*#__PURE__*/_react.default.createElement("span", null, account.firstName, "  ", account.lastName, " "), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "My Personal Informations"), /*#__PURE__*/_react.default.createElement("form", null, /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("label", null, "FirstName"), /*#__PURE__*/_react.default.createElement("input", {
-    type: "text",
-    value: account.firstName
+    type: "text" // value={account.firstName}
+
   })), /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("label", null, "LastName"), /*#__PURE__*/_react.default.createElement("input", {
-    type: "text",
-    value: account.lastName
-  })), /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("label", null, "Phone Number"), /*#__PURE__*/_react.default.createElement("input", {
-    value: account.phoneNumber
-  })), /*#__PURE__*/_react.default.createElement("button", null, "Update")))))));
+    type: "text" // value={account.lastName}
+
+  })), /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("label", null, "Phone Number"), /*#__PURE__*/_react.default.createElement("input", null)), /*#__PURE__*/_react.default.createElement("button", null, "Update")))))), /*#__PURE__*/_react.default.createElement(_BookedSeats.default, null));
 }
-},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js"}],"src/img/emojione_seat.svg":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","../components/BookedSeats":"src/components/BookedSeats.js"}],"src/img/emojione_seat.svg":[function(require,module,exports) {
 module.exports = "/emojione_seat.5fc37394.svg";
 },{}],"src/components/TripsDetails.js":[function(require,module,exports) {
 "use strict";
@@ -40559,7 +40609,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58806" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56004" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

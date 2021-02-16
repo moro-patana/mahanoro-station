@@ -28,3 +28,9 @@ export function getTripsList() {
       payload: seat,
     };
   }
+  export function removeCartItem(songId) {
+    return {
+      type: 'REMOVE_CART_ITEM',
+      payload: songId,
+    };
+  }

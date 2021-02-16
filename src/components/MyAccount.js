@@ -1,5 +1,6 @@
 import React from 'react'
 import {useSelector} from "react-redux"
+import BookedSeats from "../components/BookedSeats"
 
 export default function MyAccount() {
     const myAccount = useSelector(state => state.myAccount);
@@ -18,20 +19,20 @@ export default function MyAccount() {
                                 <label>FirstName</label>
                                 <input
                                 type="text"
-                                value={account.firstName}
+                                // value={account.firstName}
                                 />
                             </fieldset>
                             <fieldset>
                                 <label>LastName</label>
                                 <input
                                 type="text"
-                                value={account.lastName}
+                                // value={account.lastName}
                                 />
                             </fieldset>
                             <fieldset>
                                 <label>Phone Number</label>
                                 <input
-                                value={account.phoneNumber}
+                                // value={account.phoneNumber}
                                 />
                             </fieldset>
                             <button>Update</button>
@@ -40,6 +41,7 @@ export default function MyAccount() {
                 </div>
             </div>
             ))}
+            <BookedSeats/>
         </div>
     )
 }
