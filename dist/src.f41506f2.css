@@ -1,15 +1,14 @@
 html {
     font-family: "Poppins";
 }
+body {
+    margin: 0;
+}
 li {
     list-style: none;
 }
 a {
     text-decoration: none;
-}
-i {
-    color: orange;
-    font-size: 40px;
 }
 
 /*# sourceMappingURL=/src.f41506f2.css.map */
