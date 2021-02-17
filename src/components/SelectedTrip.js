@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
+import busSeat from "../img/emojione_seat.svg"
 
 import { addReservation, removeTrip} from '../actions/index';
 
@@ -22,7 +22,9 @@ export default function SelectedTrip({ seat}) {
                 onClick={() => dispatch(addReservation(seat))}
                 value={seat.id} 
 				className={seat.isAvailable === true ? "available-seat" : "booked-seat"}
-        >Seat</button>
+		>
+         <img src={busSeat} alt="seat"/>
+		</button>
         )
 	}
 

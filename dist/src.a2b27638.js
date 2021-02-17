@@ -38439,7 +38439,9 @@ const mapDispatchToProps = {
 var _default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_City.default);
 
 exports.default = _default;
-},{"react-redux":"node_modules/react-redux/es/index.js","../components/City":"src/components/City.js","../actions/index":"src/actions/index.js"}],"src/components/SelectedTrip.js":[function(require,module,exports) {
+},{"react-redux":"node_modules/react-redux/es/index.js","../components/City":"src/components/City.js","../actions/index":"src/actions/index.js"}],"src/img/emojione_seat.svg":[function(require,module,exports) {
+module.exports = "/emojione_seat.5fc37394.svg";
+},{}],"src/components/SelectedTrip.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38451,7 +38453,7 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactRedux = require("react-redux");
 
-var _styledComponents = _interopRequireDefault(require("styled-components"));
+var _emojione_seat = _interopRequireDefault(require("../img/emojione_seat.svg"));
 
 var _index = require("../actions/index");
 
@@ -38476,12 +38478,15 @@ function SelectedTrip({
       onClick: () => dispatch((0, _index.addReservation)(seat)),
       value: seat.id,
       className: seat.isAvailable === true ? "available-seat" : "booked-seat"
-    }, "Seat");
+    }, /*#__PURE__*/_react.default.createElement("img", {
+      src: _emojione_seat.default,
+      alt: "seat"
+    }));
   }
 
   return /*#__PURE__*/_react.default.createElement("div", null, showBookingIcon());
 }
-},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js","../actions/index":"src/actions/index.js"}],"src/components/Trip.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-redux":"node_modules/react-redux/es/index.js","../img/emojione_seat.svg":"src/img/emojione_seat.svg","../actions/index":"src/actions/index.js"}],"src/components/Trip.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
