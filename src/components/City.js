@@ -31,15 +31,15 @@ const Button = styled.button`
 `;
 export default function City({trips, getTripsList}) {
     const { cityName } = useParams();
+    console.log(cityName);
     console.log(trips);
     useEffect(() => {
         getTripsList()
       }, [])
-      
       function createTripTemplate(trip) {
         var options = { weekday: 'long'};
 		return (
-			<Link to={`/city/${trip.id}`} key={trip.id}>
+			<Link to={`/city/${trip.destination}`} key={trip.id}>
                 <Container>
                 <i className="ri-bus-2-fill"></i>
                 <div>

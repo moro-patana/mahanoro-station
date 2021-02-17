@@ -37,16 +37,16 @@ const List = styled.li`
 `;
 
 export default function CitiesList() {
-    const destinations = useSelector(state => state.destinations)
+    const cities = useSelector(state => state.cities)
     return (
         <div>
             <Title>🚍Where are you going?</Title>
             <Container>
-            {destinations.map((destination) => (
-                <Link to={`/city/${destination}`}>
+            {cities.map((city) => (
+                <Link to={`/city/${city}`} key={city}>
                        <CityName>
                            <i className="ri-community-line"></i>
-                               <ul><List>{destination}</List></ul>
+                           <ul><List>{city}</List></ul>
                        </CityName>
                 </Link>
             ))}

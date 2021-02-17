@@ -1,13 +1,13 @@
 import React from 'react'
 import {useSelector} from "react-redux"
-import BookedSeats from "../components/BookedSeats"
+import Booking from "../components/Booking"
 
-export default function MyAccount() {
-    const myAccount = useSelector(state => state.myAccount);
-    console.log(myAccount);
+export default function Account() {
+    const account = useSelector(state => state.account);
+    console.log(account);
     return (
         <div>
-            {myAccount.map(account => (
+            {account.map(account => (
             <div>
                 <h2>My Account</h2>
                 <span>{account.firstName}  {account.lastName} </span>
@@ -41,7 +41,7 @@ export default function MyAccount() {
                 </div>
             </div>
             ))}
-            <BookedSeats/>
+            <Booking/>
         </div>
     )
 }

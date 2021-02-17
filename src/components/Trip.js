@@ -2,7 +2,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styled from "styled-components"
-import Seat from "../img/emojione_seat.svg"
+import SelectedTrip from './SelectedTrip';
+import Booking from './Booking';
 
 const Container = styled.div`
    display: flex;
@@ -37,7 +38,9 @@ const Seats = styled.div`
 const Image = styled.img`
    width: 60px;
 `;
-export default function TripsDetails({toggleModal}) {
+export default function Trip({toggleModal}) {
+	const selectedSeats = useSelector(state => state.selectedSeats);
+	console.log(selectedSeats);
 	const { tripId } = useParams();
 
 	const trips = useSelector((state) => state.trips);
@@ -45,6 +48,12 @@ export default function TripsDetails({toggleModal}) {
 	const trip = trips.find((trip) => trip.id == tripId);
 	console.log(trip);
 
+	function showSeatsList() {
+		if (!trip) return;
+		const seatsList = trip.seats
+			.map((seat) => <SelectedTrip key={seat.id} seat={seat}></SelectedTrip>);
+		return seatsList;
+	}
 	return (
 		<div>
 			<Header>
@@ -55,15 +64,7 @@ export default function TripsDetails({toggleModal}) {
 				<div>
 				<h3>Pick a seat</h3>
 					<Seats>
-						{trip?.seats.map(seat => (
-						  <div>
-								<Button 
-								value={seat.id} 
-								className={seat.isAvailable === true ? "available-seat" : "booked-seat"}
-								>
-								<Image src={Seat}/></Button>
-						  </div>
-						))}
+						{showSeatsList()}
 					</Seats>
 					</div>
 					<div>
@@ -92,10 +93,9 @@ export default function TripsDetails({toggleModal}) {
 								}
 							  }
 							}
-							>
-								Book<small></small>seat
+							>Book <small>{selectedSeats.length}</small> seat
 							</button>
-							<p>Total: Ar</p>
+							<p>Total: {selectedSeats.length * trip?.price} Ar</p>
 						</div>
 					</div>
 			</Container>

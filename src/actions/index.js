@@ -9,7 +9,19 @@ export function getTripsList() {
       })
     }
   }
-
+  export function removeTrip(seatId) {
+    return {
+      type: 'REMOVE_tRIP',
+      payload: seatId,
+    };
+  }
+  
+  export function addReservation(seat) {
+    return {
+      type: 'ADD_RESERVATION',
+      payload: seat,
+    };
+  }
   export function openModal(modal){
     return {
       type: "OPEN_MODAL",
@@ -22,15 +34,4 @@ export function getTripsList() {
       payload: modal
     }
   }
-  export function pickSeat(seat) {
-    return {
-      type: 'PIC_SEAT',
-      payload: seat,
-    };
-  }
-  export function removeCartItem(songId) {
-    return {
-      type: 'REMOVE_CART_ITEM',
-      payload: songId,
-    };
-  }
+  

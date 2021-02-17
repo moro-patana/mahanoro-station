@@ -1,9 +1,9 @@
 export default {
-    bookedSeats: [],
+    cities: ["Antananarivo", "Vatomandry", "Toamasina", "Moramanga"],
     displayModal: false,
-    destinations: ["Antananarivo", "Toamasina", "Vatomandry", "Moramanga"],
+    selectedSeats: [],
     trips: [],
-    myAccount: [
+    account: [
         {
             firstName: "Holisoa",
             lastName: "Manjaka",
