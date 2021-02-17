@@ -39,7 +39,7 @@ export default function City({trips, getTripsList}) {
       function createTripTemplate(trip) {
         var options = { weekday: 'long'};
 		return (
-			<Link to={`/destination/${trip.id}`} key={trip.id}>
+			<Link to={`/city/${trip.id}`} key={trip.id}>
                 <Container>
                 <i className="ri-bus-2-fill"></i>
                 <div>

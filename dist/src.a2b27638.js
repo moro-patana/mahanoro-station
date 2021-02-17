@@ -38414,7 +38414,7 @@ function City({
       weekday: 'long'
     };
     return /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-      to: `/destination/${trip.id}`,
+      to: `/city/${trip.id}`,
       key: trip.id
     }, /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement("i", {
       className: "ri-bus-2-fill"
@@ -40609,7 +40609,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56004" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61053" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
