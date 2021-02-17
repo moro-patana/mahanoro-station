@@ -3,7 +3,9 @@ import { useSelector } from "react-redux"
 import { Link } from 'react-router-dom'
 import styled from "styled-components"
 
-
+const CitiesCard = styled.div`
+  padding: 1rem;
+`;
 const Container = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -39,7 +41,7 @@ const List = styled.li`
 export default function CitiesList() {
     const cities = useSelector(state => state.cities)
     return (
-        <div>
+        <CitiesCard>
             <Title>🚍Where are you going?</Title>
             <Container>
             {cities.map((city) => (
@@ -51,6 +53,6 @@ export default function CitiesList() {
                 </Link>
             ))}
             </Container>
-        </div>
+        </CitiesCard>
     )
 }

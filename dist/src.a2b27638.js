@@ -38227,6 +38227,9 @@ var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+const CitiesCard = _styledComponents.default.div`
+  padding: 1rem;
+`;
 const Container = _styledComponents.default.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -38261,7 +38264,7 @@ const List = _styledComponents.default.li`
 
 function CitiesList() {
   const cities = (0, _reactRedux.useSelector)(state => state.cities);
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(Title, null, "\uD83D\uDE8DWhere are you going?"), /*#__PURE__*/_react.default.createElement(Container, null, cities.map(city => /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  return /*#__PURE__*/_react.default.createElement(CitiesCard, null, /*#__PURE__*/_react.default.createElement(Title, null, "\uD83D\uDE8DWhere are you going?"), /*#__PURE__*/_react.default.createElement(Container, null, cities.map(city => /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: `/city/${city}`,
     key: city
   }, /*#__PURE__*/_react.default.createElement(CityName, null, /*#__PURE__*/_react.default.createElement("i", {
