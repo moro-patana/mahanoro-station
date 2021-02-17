@@ -1,38 +1,63 @@
-# Graded Project - Mahanoro Station
+# Mahanoro Station
+This project is made to book a seat on the bus. It based on an api which contain an object.
+These are the steps to build this project:
 
-![Design preview for the Mahanoro station coding challenge](./design/1.png)
+Components:
+-	Create an index.html.
+-	Added a div which has an id “root”
+-	Create an index.js and put it in a script in the index.html
 
-## The challenge
+State:
+-	Create a state.js file and add those following :
+-	 trips: [],
+-	 displayModal: false,
+-	 selectedSeats: [],
+-	 account: []
 
-Your challenge is to build out this app and get it working with **redux**, **compound components** and **styled components**, while making it look as close to the design as possible.
+NB: Do not forget to export that object as a default.
 
-This is a website that will allow us to reserve some seats in _"Taxi brousses"_ departing from Mahanoro station.
+Store: 
 
-Your users should be able to:
+Create a store file :
+-	Import the state from the state file.
+-	Import thunk and applyMidleware from the redux.
+-	Create the store and set the state, apply and the reducers as parameters.
+-	Export the store as a default.
 
-- Pick a city from the city list
-- See the available trips to that city, and pick one where seats are still availalable
-- Select one or more seats in the car, and see how much it's going to cost
-- Confirm the booking
-- See their confirmed bookings on the 'My account'page
-- Modify their own information, like name or phone number, on that same page.
+Index.js:
+-	Import React, ReactDOM and render the ReactDOM.
+-	Import Provider from react-dom.
+-	Import the store and set it as a props of the provider.
+-	Import the app function and wrap it in a provider. 
 
-## Where to find everything
+Actions:
 
-Your task is to build out the project to the designs from this Figma link: https://www.figma.com/file/6gSAJpaedebKAUuaM4ekFR/Mahanoro-Station?node-id=4%3A38
+Create an index.js in this folder and put all the actions inside.
+Reducers:
+_ create a reducer for each action and combine them by using combinedReducer.
+-	Export the combined reducer as a default.
 
-The data from the trips are available on this link : https://gist.githubusercontent.com/Pinois/36bb5fbf9b6a686f0baf4006dd137bca/raw/a40d8b3f696a75f388db286d57bdd05a925fa0e7/trips.json
+Let’s start:
+Open the terminal:
+-npm init.
+- npm install react, react-dom, react-router-dom, redux, thunk and redux-thunk.
+Run parcel index.html to show your code in the browser.
 
-## Building your project
+All of the coomponents files:
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+1. Menu.js
+2. CitiesList.js
+3. City.js
+4. Trip.js
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). This will make it easier to share your code with the community if you need some help. If you're not sure how to do this, [have a read through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a URL. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, but I recommend you to use **Netlify**.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead how your data and reducers will look like.
+To get the city use useParams and compare the destination to the useParasms value.
 
-## Submit your project
+Use some method to grab the id of the seat which is selected to store them in the selectedSeats in the state.
 
-You have until **Tuesday** at **15h30** to submit your github link and netlify link on this form : https://forms.gle/ikBWC2MokmdH4jdw6
+NB: It would be better to put everything in a src folder except the index.html.
 
-**Have fun building!** 🚀
+- You can find the demo: https://mahanoro-station-manjaka.netlify.app/
+- Github: https://github.com/moro-patana/mahanoro-station
+
+Happy coding!
+
