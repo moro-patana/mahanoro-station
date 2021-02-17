@@ -3,8 +3,10 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styled from "styled-components"
 import SelectedTrip from './SelectedTrip';
-import Booking from './Booking';
 
+const TripCard = styled.div`
+  padding: 1rem;
+`;
 const Container = styled.div`
    display: flex;
     flex-direction: row;
@@ -35,9 +37,6 @@ const Seats = styled.div`
 	   background-color: red;
    }
 `;
-const Image = styled.img`
-   width: 60px;
-`;
 export default function Trip({toggleModal}) {
 	const selectedSeats = useSelector(state => state.selectedSeats);
 	console.log(selectedSeats);
@@ -55,7 +54,7 @@ export default function Trip({toggleModal}) {
 		return seatsList;
 	}
 	return (
-		<div>
+		<TripCard>
 			<Header>
 				Book a seat to:
 				<CityName>{trip?.destination}</CityName>
@@ -86,7 +85,7 @@ export default function Trip({toggleModal}) {
 								<span>Breaks: {trip?.breaks}</span>
 							</p>
 							<p>Fare: {trip?.price} Ar/seat</p>
-							<button
+							<Button
 							onClick={()=>{
 								if(toggleModal){
 								  toggleModal(true);
@@ -94,12 +93,12 @@ export default function Trip({toggleModal}) {
 							  }
 							}
 							>Book <small>{selectedSeats.length}</small> seat
-							</button>
+							</Button>
 							<p>Total: {selectedSeats.length * trip?.price} Ar</p>
 						</div>
 					</div>
 			</Container>
-            </div>
+            </TripCard>
 	);
 }
 
