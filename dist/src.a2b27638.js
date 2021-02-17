@@ -38291,6 +38291,9 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
+const CityCard = _styledComponents.default.div`
+    padding: 1rem;
+`;
 const Container = _styledComponents.default.div`
     display: flex;
     flex-direction: row;
@@ -38326,8 +38329,6 @@ function City({
   const {
     cityName
   } = (0, _reactRouterDom.useParams)();
-  console.log(cityName);
-  console.log(trips);
   (0, _react.useEffect)(() => {
     getTripsList();
   }, []);
@@ -38356,7 +38357,7 @@ function City({
     return filteredTrips;
   }
 
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(Header, null, /*#__PURE__*/_react.default.createElement("span", null, "Next Trip to:"), /*#__PURE__*/_react.default.createElement(CityName, null, cityName)), /*#__PURE__*/_react.default.createElement("div", null, showTripsFilteredByDestination()));
+  return /*#__PURE__*/_react.default.createElement(CityCard, null, /*#__PURE__*/_react.default.createElement(Header, null, /*#__PURE__*/_react.default.createElement("span", null, "Next Trip to:"), /*#__PURE__*/_react.default.createElement(CityName, null, cityName)), /*#__PURE__*/_react.default.createElement("div", null, showTripsFilteredByDestination()));
 }
 },{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/actions/index.js":[function(require,module,exports) {
 "use strict";

@@ -2,6 +2,9 @@ import React, {useEffect} from 'react'
 import { useParams, Link } from 'react-router-dom';
 import styled from "styled-components"
 
+const CityCard = styled.div`
+    padding: 1rem;
+`;
 const Container = styled.div`
     display: flex;
     flex-direction: row;
@@ -31,11 +34,11 @@ const Button = styled.button`
 `;
 export default function City({trips, getTripsList}) {
     const { cityName } = useParams();
-    console.log(cityName);
-    console.log(trips);
+   
     useEffect(() => {
         getTripsList()
       }, [])
+
       function createTripTemplate(trip) {
         var options = { weekday: 'long'};
 		return (
@@ -65,12 +68,12 @@ export default function City({trips, getTripsList}) {
             return filteredTrips;
         }
     return (
-        <>
-        <Header>
-            <span>Next Trip to:</span> 
-            <CityName>{cityName}</CityName>
-        </Header>
+        <CityCard>
+            <Header>
+                <span>Next Trip to:</span> 
+                <CityName>{cityName}</CityName>
+            </Header>
             <div>{showTripsFilteredByDestination()}</div>
-        </>
+        </CityCard>
     )
 }
