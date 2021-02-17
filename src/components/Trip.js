@@ -24,10 +24,16 @@ const CityName = styled.span`
    font-size: 24px;
 `;
 const Button = styled.button`
-   border: none;
    margin-bottom: 20px;
-   padding: 10px;
    cursor: pointer;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-size: 18px;
+    background-color: #E53170;
+    border: none;
+    color: white;
 `;
 const Seats = styled.div`
    display: grid;
@@ -37,6 +43,10 @@ const Seats = styled.div`
 	.booked-seat {
 	   background-color: red;
    }
+`;
+const SeatNumber = styled.small`
+ color: orange;
+ font-size: 20px;
 `;
 export default function Trip({toggleModal}) {
 	const selectedSeats = useSelector(state => state.selectedSeats);
@@ -71,21 +81,21 @@ export default function Trip({toggleModal}) {
 						<h3>Trip Informations:</h3>
 						<div>
 							<p>
-								<span>Departure Time: {trip?.departureTime}</span>
+								<span>Departure Time: <b>{trip?.departureTime}</b></span>
 							</p>
 							<p>
-								<span>Driver: {trip?.driverName}</span>
+								<span>Driver: <b>{trip?.driverName}</b></span>
 							</p>
 							<p>
-								<span>Driver's contact: {trip?.driverContact}</span>
+								<span>Driver's contact: <b>{trip?.driverContact}</b></span>
 							</p>
 							<p>
-								<span>Estimated duration: {trip?.estimatedDuration}</span>
+								<span>Estimated duration: <b>{trip?.estimatedDuration}</b></span>
 							</p>
 							<p>
-								<span>Breaks: {trip?.breaks}</span>
+								<span>Breaks: <b>{trip?.breaks}</b></span>
 							</p>
-							<p>Fare: {trip?.price} Ar/seat</p>
+							<p>Fare: <b>{trip?.price}</b> Ar/seat</p>
 							<Button
 							onClick={()=>{
 								if(toggleModal){
@@ -93,7 +103,7 @@ export default function Trip({toggleModal}) {
 								}
 							  }
 							}
-							>Book <small>{selectedSeats.length}</small> seat
+							>Book <SeatNumber>{selectedSeats.length}</SeatNumber> seat
 							</Button>
 							<p>Total: {selectedSeats.length * trip?.price} Ar</p>
 						</div>

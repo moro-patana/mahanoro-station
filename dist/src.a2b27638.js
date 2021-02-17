@@ -38526,10 +38526,16 @@ const CityName = _styledComponents.default.span`
    font-size: 24px;
 `;
 const Button = _styledComponents.default.button`
-   border: none;
    margin-bottom: 20px;
-   padding: 10px;
    cursor: pointer;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-size: 18px;
+    background-color: #E53170;
+    border: none;
+    color: white;
 `;
 const Seats = _styledComponents.default.div`
    display: grid;
@@ -38539,6 +38545,10 @@ const Seats = _styledComponents.default.div`
 	.booked-seat {
 	   background-color: red;
    }
+`;
+const SeatNumber = _styledComponents.default.small`
+ color: orange;
+ font-size: 20px;
 `;
 
 function Trip({
@@ -38562,13 +38572,13 @@ function Trip({
     return seatsList;
   }
 
-  return /*#__PURE__*/_react.default.createElement(TripCard, null, /*#__PURE__*/_react.default.createElement(Header, null, "Book a seat to:", /*#__PURE__*/_react.default.createElement(CityName, null, trip?.destination)), /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "Pick a seat"), /*#__PURE__*/_react.default.createElement(Seats, null, showSeatsList())), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "Trip Informations:"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Departure Time: ", trip?.departureTime)), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Driver: ", trip?.driverName)), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Driver's contact: ", trip?.driverContact)), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Estimated duration: ", trip?.estimatedDuration)), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Breaks: ", trip?.breaks)), /*#__PURE__*/_react.default.createElement("p", null, "Fare: ", trip?.price, " Ar/seat"), /*#__PURE__*/_react.default.createElement(Button, {
+  return /*#__PURE__*/_react.default.createElement(TripCard, null, /*#__PURE__*/_react.default.createElement(Header, null, "Book a seat to:", /*#__PURE__*/_react.default.createElement(CityName, null, trip?.destination)), /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "Pick a seat"), /*#__PURE__*/_react.default.createElement(Seats, null, showSeatsList())), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "Trip Informations:"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Departure Time: ", /*#__PURE__*/_react.default.createElement("b", null, trip?.departureTime))), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Driver: ", /*#__PURE__*/_react.default.createElement("b", null, trip?.driverName))), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Driver's contact: ", /*#__PURE__*/_react.default.createElement("b", null, trip?.driverContact))), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Estimated duration: ", /*#__PURE__*/_react.default.createElement("b", null, trip?.estimatedDuration))), /*#__PURE__*/_react.default.createElement("p", null, /*#__PURE__*/_react.default.createElement("span", null, "Breaks: ", /*#__PURE__*/_react.default.createElement("b", null, trip?.breaks))), /*#__PURE__*/_react.default.createElement("p", null, "Fare: ", /*#__PURE__*/_react.default.createElement("b", null, trip?.price), " Ar/seat"), /*#__PURE__*/_react.default.createElement(Button, {
     onClick: () => {
       if (toggleModal) {
         toggleModal(true);
       }
     }
-  }, "Book ", /*#__PURE__*/_react.default.createElement("small", null, selectedSeats.length), " seat"), /*#__PURE__*/_react.default.createElement("p", null, "Total: ", selectedSeats.length * trip?.price, " Ar")))));
+  }, "Book ", /*#__PURE__*/_react.default.createElement(SeatNumber, null, selectedSeats.length), " seat"), /*#__PURE__*/_react.default.createElement("p", null, "Total: ", selectedSeats.length * trip?.price, " Ar")))));
 }
 },{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","react-redux":"node_modules/react-redux/es/index.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js","./SelectedTrip":"src/components/SelectedTrip.js"}],"src/containers/Trip.js":[function(require,module,exports) {
 "use strict";
