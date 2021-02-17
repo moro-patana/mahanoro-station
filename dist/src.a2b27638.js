@@ -40340,7 +40340,11 @@ function _interopRequireDefault(obj) {
 
 exports.default = _Modal2.default;
 module.exports = exports["default"];
-},{"./components/Modal":"node_modules/react-modal/lib/components/Modal.js"}],"src/components/Modal.js":[function(require,module,exports) {
+},{"./components/Modal":"node_modules/react-modal/lib/components/Modal.js"}],"src/img/check.svg":[function(require,module,exports) {
+module.exports = "/check.40f109ed.svg";
+},{}],"src/img/close-icon.svg":[function(require,module,exports) {
+module.exports = "/close-icon.5d4f9c55.svg";
+},{}],"src/components/Modal.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -40356,7 +40360,53 @@ var _reactRedux = require("react-redux");
 
 var _reactModal = _interopRequireDefault(require("react-modal"));
 
+var _check = _interopRequireDefault(require("../img/check.svg"));
+
+var _closeIcon = _interopRequireDefault(require("../img/close-icon.svg"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const ModalCard = _styledComponents.default.div`
+ text-align: center;
+`;
+const Title = _styledComponents.default.h4`
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+`;
+const Button = _styledComponents.default.button`
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-size: 18px;
+    background-color: #E53170;
+    border: none;
+    color: white;
+`;
+const CloseButton = _styledComponents.default.button`
+    position: absolute;
+    top: 10px;
+    right: 18px;
+    border: none;
+    background-color: transparent;
+`;
+const Span = _styledComponents.default.span`
+ padding: 20px;
+ font-size: 24px;
+`;
+const Text = _styledComponents.default.p`
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    color: #000000;
+    text-align: center;
+`;
 
 function Modal({
   toggleModal,
@@ -40365,23 +40415,29 @@ function Modal({
   const trips = (0, _reactRedux.useSelector)(state => state.trips);
   return /*#__PURE__*/_react.default.createElement(_reactModal.default, {
     isOpen: displayModal
-  }, /*#__PURE__*/_react.default.createElement("button", {
+  }, /*#__PURE__*/_react.default.createElement(ModalCard, null, /*#__PURE__*/_react.default.createElement(CloseButton, {
     onClick: () => {
       if (toggleModal) {
         toggleModal(false);
       }
     }
-  }, "close"), /*#__PURE__*/_react.default.createElement("h4", null, "Booking confirmed"), /*#__PURE__*/_react.default.createElement("p", null, "Thank you for trusting our services. Your booking has been added to your account. You can review it there."), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: _closeIcon.default,
+    alt: "close button icon"
+  })), /*#__PURE__*/_react.default.createElement(Title, null, /*#__PURE__*/_react.default.createElement("img", {
+    src: _check.default,
+    alt: "check icon"
+  }), /*#__PURE__*/_react.default.createElement(Span, null, "Booking confirmed")), /*#__PURE__*/_react.default.createElement(Text, null, "Thank you for trusting our services. Your booking has been added to your account. You can review it there."), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: `/account`
-  }, /*#__PURE__*/_react.default.createElement("button", {
+  }, /*#__PURE__*/_react.default.createElement(Button, {
     onClick: () => {
       if (toggleModal) {
         toggleModal(false);
       }
     }
-  }, "Check your account")));
+  }, "Check your account"))));
 }
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","react-redux":"node_modules/react-redux/es/index.js","react-modal":"node_modules/react-modal/lib/index.js"}],"src/containers/Modal.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","react-redux":"node_modules/react-redux/es/index.js","react-modal":"node_modules/react-modal/lib/index.js","../img/check.svg":"src/img/check.svg","../img/close-icon.svg":"src/img/close-icon.svg","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/containers/Modal.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
